@@ -1,0 +1,6 @@
+.txt{
+    transition: all 0.5s;
+}
+.txt:hover {
+    transform: translateX(10px);
+}
