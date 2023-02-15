@@ -4,3 +4,17 @@
 .txt:hover {
     transform: translateX(10px);
 }
+
+.chatbox::-webkit-scrollbar{
+    display: none;
+
+}
+.chatbox{
+     -ms-overflow-style: none; 
+  scrollbar-width: none; 
+}
+.close:hover{
+    transform: scale(1.5);
+    cursor: pointer;
+
+}

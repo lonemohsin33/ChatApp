@@ -9,9 +9,30 @@ const io = new Server(server)
 
 
 app.use(cors())
-
+const users=[{}]
 io.on('connection', (socket) => {
     console.log("user connected")
+    socket.on('joined', (data) => {
+        users[socket.id] = data.user
+        console.log(`${data.user} has Joined`)
+        socket.broadcast.emit('userjoined', { user: 'Admin: ', message: `${users[socket.id]} has Joined the chat` });
+         socket.emit("welcome", {
+           user: "Admin ",
+           message: `welcome to the chat ,${users[socket.id]}`,
+         });
+    })
+    socket.on('disconnect', () => {
+        socket.broadcast.emit("leave", {
+          user: "Admin ",
+          message: `${users[socket.id]} has Left the chat`,
+        });
+        console.log('user Left')
+    })
+    socket.on('message', ({chat,id}) => {
+        io.emit('sendMessage', {user:users[id], message:chat,id})
+        console.log(chat,id)
+    })
+   
     
 })
 

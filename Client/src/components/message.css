@@ -1,0 +1,27 @@
+.messagebox{
+    padding: 1vmax;
+    margin: 1vmax;
+    width: 50%;
+    display: inline-block;
+    border-radius: 1vmax;
+    clear: both;
+    
+}
+.right{
+    float: right;
+    background-color: rgb(244, 182, 195);
+    color: black;
+  font-family: cursive;
+   font-weight: 400;
+    font-size: large;
+
+}
+.left{
+    float: left;
+     font-size: large;
+    background-color: rgb(204, 237, 204);
+    color: black;
+    font-family: cursive;
+    font-weight: 400;
+   
+}
